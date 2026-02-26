@@ -3,6 +3,7 @@ LOGS_FOLDER="/var/log/shell-expense"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 START_TIME=$(date +%s)
 SCRIPT_DIR=$PWD
+MYSQL_PASSWORD="ExpenseApp@1"
 
 R="\e[31m"
 G="\e[32m"
