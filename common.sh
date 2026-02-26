@@ -73,7 +73,7 @@ mysql_client(){
     dnf install mysql -y &>>$LOGS_FILE
     validate $? "installing mysql client package"
 
-    mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGS_FILE
+    mysql -h mysql.pmpkdev.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGS_FILE
     validate $? "Loading the mysql schema"
 }
 

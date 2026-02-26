@@ -13,7 +13,7 @@ validate $? "Enable and start mysql"
 mysql_secure_installation --set-root-pass $MYSQL_PASSWORD &>>$LOGS_FILE
 validate $? "Setting mysql root password"
 
-mysql -h <host-address> -u root -p$MYSQL_PASSWORD &>>$LOGS_FILE
+mysql -h mysql.pmpkdev.online -u root -p$MYSQL_PASSWORD &>>$LOGS_FILE
 validate $? "connect to mysql server"
 
 mysql
