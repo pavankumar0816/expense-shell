@@ -16,8 +16,4 @@ validate $? "Setting mysql root password"
 mysql -h mysql.pmpkdev.online -u root -p$MYSQL_PASSWORD &>>$LOGS_FILE
 validate $? "connect to mysql server"
 
-mysql
-show databases;
-show tables;
-
 print_total_time

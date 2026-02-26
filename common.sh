@@ -8,6 +8,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+
 mkdir -p $LOGS_FOLDER
 
 echo "$(date "+%Y-%m-%d %H:%M:%S") | Script Execution Started" | tee -a $LOGS_FILE
@@ -16,11 +17,12 @@ echo "$(date "+%Y-%m-%d %H:%M:%S") | Script Execution Started" | tee -a $LOGS_FI
 check_root(){
 if [ $userid -ne 0 ]; then
   echo "Run using sudo access"
+  exit 1
 fi
 }
 
 validate(){
-    if [$1 -ne 0 ]; then
+    if [ $1 -ne 0 ]; then
        echo -e "$2 is $R Failed $N ..."
        exit 1
     else
@@ -44,10 +46,10 @@ app_setup(){
     validate $? "Downloading Expense $app_name content"
 
     cd /app
-    VALIDATE $? "Moving to App Directory"
+    validate $? "Moving to App Directory"
 
     rm -rf /app/*
-    VALIDATE $? "Removing Existing Code"
+    validate $? "Removing Existing Code"
 
     unzip /tmp/$app_name.zip &>>$LOGS_FILE
     validate $? "Extracting Expense app content"
