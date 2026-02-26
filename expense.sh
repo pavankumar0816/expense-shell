@@ -5,7 +5,7 @@ AMI_ID="ami-0220d79f3f480ecf5"
 ZONE_ID="Z00391083QXL8RYXR03CG"
 DOMAIN_NAME="pmpkdev.online"
 
-for instances in $@
+for instance in $@
 do
    instance_id=$(
      aws ec2 run-instances \
