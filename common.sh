@@ -16,7 +16,7 @@ echo "$(date "+%Y-%m-%d %H:%M:%S") | Script Execution Started" | tee -a $LOGS_FI
 
 check_root(){
 if [ $userid -ne 0 ]; then
-  echo "Run using sudo access"
+  echo -e "$R Run using sudo access $N "
   exit 1
 fi
 }
